@@ -48,11 +48,11 @@ const GlobalStyles = css`
     & rect { fill: #cbcbcb !important; }
     & text { text-decoration: line-through; }
   }
-  svg .done1 {
-    & rect { fill: blue !important; }
+  svg .doneAdvanced {
+    & rect { fill: lightgreen !important; }
     & text { text-decoration: line-through; }
   }
-  svg .done2 {
+  svg .doneInter {
     & rect { fill: orange !important; }
     & text { text-decoration: line-through; }
   }

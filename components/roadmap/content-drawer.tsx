@@ -55,10 +55,10 @@ export function ContentDrawer(props: ContentDrawerProps) {
                 onClick={() => {
                   localStorage.setItem(groupId, 'done');
                   queryGroupElementsById(groupId).forEach((item) =>
-                    item?.classList?.remove('done1')
+                    item?.classList?.remove('doneAdvanced')
                   );
                   queryGroupElementsById(groupId).forEach((item) =>
-                    item?.classList?.remove('done2')
+                    item?.classList?.remove('doneInter')
                   );
                   queryGroupElementsById(groupId).forEach((item) =>
                     item?.classList?.add('done')
@@ -88,10 +88,10 @@ export function ContentDrawer(props: ContentDrawerProps) {
                     item?.classList?.remove('done')
                   );
                   queryGroupElementsById(groupId).forEach((item) =>
-                    item?.classList?.remove('done1')
+                    item?.classList?.remove('doneAdvanced')
                   );
                   queryGroupElementsById(groupId).forEach((item) =>
-                    item?.classList?.remove('done2')
+                    item?.classList?.remove('doneInter')
                   );
                   onClose();
                 }}
@@ -117,14 +117,14 @@ export function ContentDrawer(props: ContentDrawerProps) {
                     item?.classList?.remove('done')
                   );
                   queryGroupElementsById(groupId).forEach((item) =>
-                    item?.classList?.remove('done2')
+                    item?.classList?.remove('doneInter')
                   );
                   queryGroupElementsById(groupId).forEach((item) =>
-                    item?.classList?.add('done1')
+                    item?.classList?.add('doneAdvanced')
                   );
                   onClose();
                 }}
-                colorScheme="blue"
+                colorScheme="green"
                 leftIcon={<CheckIcon />}
                 size="xs"
                 iconSpacing={0}
@@ -134,7 +134,7 @@ export function ContentDrawer(props: ContentDrawerProps) {
                   d={['block', 'none', 'none', 'block']}
                   ml="10px"
                 >
-                  Advanced as Done
+                Done as Advanced
                 </Text>
               </Button>
             )}
@@ -144,10 +144,10 @@ export function ContentDrawer(props: ContentDrawerProps) {
                   localStorage.removeItem(groupId);
 
                   queryGroupElementsById(groupId).forEach((item) =>
-                    item?.classList?.remove('done1')
+                    item?.classList?.remove('doneAdvanced')
                   );
                   queryGroupElementsById(groupId).forEach((item) =>
-                    item?.classList?.remove('done2')
+                    item?.classList?.remove('doneInter')
                   );
                   queryGroupElementsById(groupId).forEach((item) =>
                     item?.classList?.remove('done')
@@ -174,11 +174,11 @@ export function ContentDrawer(props: ContentDrawerProps) {
                 onClick={() => {
                   localStorage.setItem(groupId, 'inter');
                   queryGroupElementsById(groupId).forEach((item) =>
-                    item?.classList?.add('done2')
+                    item?.classList?.add('doneInter')
                   );
                   onClose();
                 }}
-                colorScheme="orange"
+                colorScheme="green"
                 leftIcon={<CheckIcon />}
                 size="xs"
                 iconSpacing={0}
@@ -188,7 +188,7 @@ export function ContentDrawer(props: ContentDrawerProps) {
                   d={['block', 'none', 'none', 'block']}
                   ml="10px"
                 >
-                  Intermediate as Done
+                Done as Intermediate 
                 </Text>
               </Button>
             )}
@@ -197,10 +197,10 @@ export function ContentDrawer(props: ContentDrawerProps) {
                 onClick={() => {
                   localStorage.removeItem(groupId);
                   queryGroupElementsById(groupId).forEach((item) =>
-                    item?.classList?.remove('done1')
+                    item?.classList?.remove('doneAdvanced')
                   );
                   queryGroupElementsById(groupId).forEach((item) =>
-                    item?.classList?.remove('done2')
+                    item?.classList?.remove('doneInter')
                   );
                   queryGroupElementsById(groupId).forEach((item) =>
                     item?.classList?.remove('done')
