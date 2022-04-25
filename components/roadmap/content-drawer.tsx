@@ -18,7 +18,8 @@ export function ContentDrawer(props: ContentDrawerProps) {
   }
 
   const isDone = localStorage.getItem(groupId) === 'done';
-
+  const isAdvanced = localStorage.getItem(groupId) === 'advanced';
+  const isInter = localStorage.getItem(groupId) === 'inter';
   return (
     <Box zIndex={99999} pos="relative">
       <Box
@@ -54,8 +55,15 @@ export function ContentDrawer(props: ContentDrawerProps) {
                 onClick={() => {
                   localStorage.setItem(groupId, 'done');
                   queryGroupElementsById(groupId).forEach((item) =>
+                    item?.classList?.remove('done1')
+                  );
+                  queryGroupElementsById(groupId).forEach((item) =>
+                    item?.classList?.remove('done2')
+                  );
+                  queryGroupElementsById(groupId).forEach((item) =>
                     item?.classList?.add('done')
                   );
+
                   onClose();
                 }}
                 colorScheme="green"
@@ -79,6 +87,12 @@ export function ContentDrawer(props: ContentDrawerProps) {
                   queryGroupElementsById(groupId).forEach((item) =>
                     item?.classList?.remove('done')
                   );
+                  queryGroupElementsById(groupId).forEach((item) =>
+                    item?.classList?.remove('done1')
+                  );
+                  queryGroupElementsById(groupId).forEach((item) =>
+                    item?.classList?.remove('done2')
+                  );
                   onClose();
                 }}
                 colorScheme="red"
@@ -92,6 +106,118 @@ export function ContentDrawer(props: ContentDrawerProps) {
                   ml="10px"
                 >
                   Mark as Pending
+                </Text>
+              </Button>
+            )}
+            {!isAdvanced && (
+              <Button
+                onClick={() => {
+                  localStorage.setItem(groupId, 'advanced');
+                  queryGroupElementsById(groupId).forEach((item) =>
+                    item?.classList?.remove('done')
+                  );
+                  queryGroupElementsById(groupId).forEach((item) =>
+                    item?.classList?.remove('done2')
+                  );
+                  queryGroupElementsById(groupId).forEach((item) =>
+                    item?.classList?.add('done1')
+                  );
+                  onClose();
+                }}
+                colorScheme="blue"
+                leftIcon={<CheckIcon />}
+                size="xs"
+                iconSpacing={0}
+              >
+                <Text
+                  as="span"
+                  d={['block', 'none', 'none', 'block']}
+                  ml="10px"
+                >
+                  Advanced as Done
+                </Text>
+              </Button>
+            )}
+            {isAdvanced && (
+              <Button
+                onClick={() => {
+                  localStorage.removeItem(groupId);
+
+                  queryGroupElementsById(groupId).forEach((item) =>
+                    item?.classList?.remove('done1')
+                  );
+                  queryGroupElementsById(groupId).forEach((item) =>
+                    item?.classList?.remove('done2')
+                  );
+                  queryGroupElementsById(groupId).forEach((item) =>
+                    item?.classList?.remove('done')
+                  );
+                  onClose();
+                }}
+                colorScheme="red"
+                leftIcon={<RepeatIcon />}
+                size="xs"
+                iconSpacing={0}
+              >
+                <Text
+                  as="span"
+                  d={['block', 'none', 'none', 'block']}
+                  ml="10px"
+                >
+                  Advanced as Pending
+                </Text>
+              </Button>
+            )}
+
+            {!isInter && (
+              <Button
+                onClick={() => {
+                  localStorage.setItem(groupId, 'inter');
+                  queryGroupElementsById(groupId).forEach((item) =>
+                    item?.classList?.add('done2')
+                  );
+                  onClose();
+                }}
+                colorScheme="orange"
+                leftIcon={<CheckIcon />}
+                size="xs"
+                iconSpacing={0}
+              >
+                <Text
+                  as="span"
+                  d={['block', 'none', 'none', 'block']}
+                  ml="10px"
+                >
+                  Intermediate as Done
+                </Text>
+              </Button>
+            )}
+            {isInter && (
+              <Button
+                onClick={() => {
+                  localStorage.removeItem(groupId);
+                  queryGroupElementsById(groupId).forEach((item) =>
+                    item?.classList?.remove('done1')
+                  );
+                  queryGroupElementsById(groupId).forEach((item) =>
+                    item?.classList?.remove('done2')
+                  );
+                  queryGroupElementsById(groupId).forEach((item) =>
+                    item?.classList?.remove('done')
+                  );
+                  onClose();
+                }}
+                colorScheme="red"
+                leftIcon={<RepeatIcon />}
+                size="xs"
+                iconSpacing={0}
+              >
+                <Text
+                  as="span"
+                  d={['block', 'none', 'none', 'block']}
+                  ml="10px"
+                >
+                  Intermediate as Pending
                 </Text>
               </Button>
             )}

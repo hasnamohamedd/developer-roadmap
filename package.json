@@ -35,7 +35,9 @@
     "react-dom": "17.0.2",
     "react-remove-scroll": "^2.4.3",
     "styled-components": "^5.3.3",
-    "use-http": "^1.0.26"
+    "use-http": "^1.0.26",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
   },
   "devDependencies": {
     "@types/eslint": "8.2.1",

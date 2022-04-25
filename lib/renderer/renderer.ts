@@ -262,7 +262,9 @@ export class Renderer {
   __group__(control: any, container: any) {
     const controlName = control?.properties?.controlName;
     const groupId = removeSortingInfo(controlName);
+    const isAdvanced = localStorage.getItem(groupId) === 'advanced';
     const isDone = localStorage.getItem(groupId) === 'done';
+    const isInter = localStorage.getItem(groupId) === 'inter';
 
     let group = makeSVGElement(
       'g',
@@ -270,6 +272,30 @@ export class Renderer {
         ...(controlName
           ? {
               class: `clickable-group ${isDone ? 'done' : ''}`,
+              'data-group-id': controlName,
+            }
+          : {}),
+      },
+      container
+    );
+    let group1 = makeSVGElement(
+      'g',
+      {
+        ...(controlName
+          ? {
+              class: `clickable-group ${isAdvanced ? 'advanced' : ''}`,
+              'data-group-id': controlName,
+            }
+          : {}),
+      },
+      container
+    );
+    let group2 = makeSVGElement(
+      'g',
+      {
+        ...(controlName
+          ? {
+              class: `clickable-group ${isInter ? 'inter' : ''}`,
               'data-group-id': controlName,
             }
           : {}),
@@ -286,6 +312,8 @@ export class Renderer {
         childControl.y = parseInt(childControl.y, 10) + parseInt(control.y, 10);
 
         this.render(childControl, group);
+        this.render(childControl, group1);
+        this.render(childControl, group2);
       });
   }
 }
