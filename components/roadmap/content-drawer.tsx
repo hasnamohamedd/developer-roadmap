@@ -134,7 +134,7 @@ export function ContentDrawer(props: ContentDrawerProps) {
                   d={['block', 'none', 'none', 'block']}
                   ml="10px"
                 >
-                Done as Advanced
+                  Done as Advanced
                 </Text>
               </Button>
             )}
@@ -188,7 +188,7 @@ export function ContentDrawer(props: ContentDrawerProps) {
                   d={['block', 'none', 'none', 'block']}
                   ml="10px"
                 >
-                Done as Intermediate 
+                  Done as Intermediate
                 </Text>
               </Button>
             )}
